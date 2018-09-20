@@ -1,0 +1,41 @@
+---
+title: "SpringBoard Project proposal"
+author: "Leonardo Quintero"
+date: "September, 2018"
+output: html_document
+---
+
+#####Cryptocurrency market simplification
+
+##### The Problem.  
+
+For people looking to venture into cryptocurrency, choosing a single cryptocurrency out of the almost two thousand available is a difficult and tedious task. Investors looking to find high-yield options outside of the traditional Bitcoin and Ethereum, or beginner investors who want a low risk investment, usually have a difficult time figuring out where to put their money.  
+
+Furthermore, the growing amount of scams and misleading ICOs have novice crypto-enthusiasts worried about how to invest and in what. Even someone with an advanced level of cryptocurrency knowledge may believe false statements about a specific cryptocurrency, invest, and lose all of the investment quickly. Regulations are only recently starting to form in the cryptocurrency field, but there is still risk when putting large sums of money into the virtual world.
+
+#####Who is your client and why do they care about this problem?  
+This project, therefore, aims to help beginners who want to start investing in low-risk options in the world of cryptocurrency. For people who want to find clear information about the market with a ranking of cryptocurrencies from low- to high-risk, I’ve created this project.  
+
+
+#####What data are you going to use for this? How will you acquire this data?  
+The data set is obtained from CoinMarketCap, which includes a list of cryptocurrencies, names, symbols, market capital, price, percentage variation of price, among other qualities of each. It also has a column of whether or not the cryptocurrency is mineable. 
+
+
+#####In brief, outline your approach to solving this problem (knowing that this might change later).  
+I begin the project by gathering the data from the two websites, with RVest package, into single columns, then wrangling and cleaning each one of them, and putting all of the information in two different dataframes, to create a two dimensional matrix. I then run a visual exploratory analysis to detect trends or patterns among the cryptocurrencies price variations in both data frames. Then, I make a feature selection process, which might include more data wrangling. The data set will then be ready for multiple linear regression (machine learning), that helps predicting the token’s prices and so, it’s stability. This might be complemented by the application of an arima model. 
+
+It has yet to be defined if an outsourced cryptocurrency Trading bot designed to measure and alert investing opportunities would be used.
+  
+#####Deliverables  
+* Code for both website's data scraping and wranging
+  + R scripts
+  +[CoinMarketCap.com]https://coinmarketcap.com/all/views/all/
+  +[Investing.com]https://www.investing.com/crypto/currencies
+* full data sets
+  +CryptoCoinM.csv
+  +Cryptoinvest.csv
+* Rscript with visual exploratory analysis
+* Feature selection script and aditional data wrangling
+* Rscrip with machine learning and ARIMA
+* R script with explanatory data analysis
+* Slide deck
