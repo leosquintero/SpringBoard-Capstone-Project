@@ -28,9 +28,9 @@ It has yet to be defined if an outsourced cryptocurrency Trading bot designed to
   
 ##### Deliverables  
 * Code for both website's data scraping and wranging
-  + R scripts
-  +[CoinMarketCap.com]https://coinmarketcap.com/all/views/all/
-  +[Investing.com]https://www.investing.com/crypto/currencies
+  + R scripts  
+  +[CoinMarketCap.com]https://coinmarketcap.com/all/views/all/  
+  +[Investing.com]https://www.investing.com/crypto/currencies  
 * full data sets
   +CryptoCoinM.csv
   +Cryptoinvest.csv
