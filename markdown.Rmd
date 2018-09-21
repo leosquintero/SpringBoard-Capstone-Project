@@ -22,18 +22,16 @@ The data set is obtained from CoinMarketCap, which includes a list of cryptocurr
 
 
 ##### In brief, outline your approach to solving this problem (knowing that this might change later).  
-I begin the project by gathering the data from the two websites, with RVest package, into single columns, then wrangling and cleaning each one of them, and putting all of the information in two different dataframes, to create a two dimensional matrix. I then run a visual exploratory analysis to detect trends or patterns among the cryptocurrencies price variations in both data frames. Then, I make a feature selection process, which might include more data wrangling. The data set will then be ready for multiple linear regression (machine learning), that helps predicting the token’s prices and so, it’s stability. This might be complemented by the application of an arima model. 
+I begin the project by gathering the data from the website, with RVest package, into single columns, then wrangling and cleaning each one of them, and putting all of the information in a single dataframe. I then run a visual exploratory analysis to detect trends or patterns among the cryptocurrencies price variations in the data frame. Then, I make a feature selection process, which might include more data wrangling. The data set will then be ready for linear regression, that helps predicting the token’s prices and so, it’s stability. This might be complemented by the application of an arima model. 
 
-It has yet to be defined if an outsourced cryptocurrency Trading bot designed to measure and alert investing opportunities would be used.
+
   
 ##### Deliverables  
 * Code for both website's data scraping and wranging
   + R scripts  
   + [CoinMarketCap.com]https://coinmarketcap.com/all/views/all/  
-  + [Investing.com]https://www.investing.com/crypto/currencies  
-* full data sets
+* full data set
   +CryptoCoinM.csv
-  +Cryptoinvest.csv
 * Rscript with visual exploratory analysis
 * Feature selection script and aditional data wrangling
 * Rscrip with machine learning and ARIMA
