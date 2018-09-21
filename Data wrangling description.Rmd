@@ -1,0 +1,80 @@
+---
+title: "SpringBoard data wrangling"
+author: "Leonardo Quintero"
+date: "September 20, 2018"
+output: html_document
+---
+
+##### Data scraping and wrangling description  
+ 
+##### Step One  
+The proccess was started by setting the url as data source and then using the Rvest package and a Selector gadget, for node selection and  data gathering.   
+
+```{r}
+
+url <- "https://coinmarketcap.com/all/views/all/"
+```
+
+This proccess was done by scraping column by column from coinmarketcap.com into R studio, by setting single columns to be wrangled and cleaned up before merging all the information into a single data frame.  
+
+```{r}
+Crypto <- read_html(url) %>% 
+  html_nodes(".currency-name-container") %>% 
+  html_text() %>% 
+  data.frame()
+
+```
+
+This same code was used on every single column from coinmarkets' website to end up with a total of 10 separated columns that were merged at the end.  
+
+```{r}
+##merging into one dataframe
+Crypto["Symbol"]<- data.frame(Symbol)
+Crypto["Market_cap"]<- data.frame(Market_cap)
+Crypto["Price"]<- data.frame(Price)
+Crypto["Circulation_Supply"]<- data.frame(Circulation_Supply$Circulating_Supply)
+Crypto["Mineable"]<- data.frame(Circulation_Supply$Mineable)
+Crypto["Volume(24h)"]<- data.frame(Volume)
+Crypto["Var%1hour"]<- data.frame(one_hour)
+Crypto["Var%24hours"]<- data.frame(twenty_four)
+Crypto["Var%7days"]<- data.frame(seven_days)
+```
+
+The full script contains all details on data wrangling, since it was necesary to erase many unwanted characters from several columns, specially all the times were the simbol "?" acompanied the information on each column.  
+
+```{r}
+##scraping circulating supply
+Circulation_Supply <- read_html(url) %>% 
+  html_nodes(".circulating-supply") %>% 
+  html_text() %>% 
+  data.frame()
+
+#Changing unwanted characters (?) to empty
+Circulation_Supply$. <- gsub(pattern = "([?])", replacement = "",
+                             x = Circulation_Supply$.)
+```
+
+Finally, the column "Circulating Supply", was acompanied by a "*" symbol which was separated into a single column and changed into a binary one to specify that the cryptocurrency is mineable or not.  
+```{r}
+##scraping circulating supply
+Circulation_Supply <- read_html(url) %>% 
+  html_nodes(".circulating-supply") %>% 
+  html_text() %>% 
+  data.frame()
+
+#Changing unwanted characters (?) to empty
+Circulation_Supply$. <- gsub(pattern = "([?])", replacement = "",
+                             x = Circulation_Supply$.)
+
+# Is the cryptocurrency mineable
+Circulation_Supply$Mineable <- as.numeric(grepl("[*]", 
+                                                Circulation_Supply$.))
+
+# Erasing * character from circulating supply variable
+Circulation_Supply$. <- gsub(pattern = "([*])", replacement = "", 
+                             x = Circulation_Supply$.)
+
+# renaming columns
+colnames(Circulation_Supply) <- c("Circulating_Supply","Mineable")
+```
+
